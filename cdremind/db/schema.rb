@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190313070212) do
+ActiveRecord::Schema.define(version: 20190323104436) do
+
+  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "jan"
+    t.string   "title"
+    t.string   "artist_name"
+    t.string   "sales_date"
+    t.string   "image_url"
+    t.string   "item_url"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "availability"
+  end
+
+  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_relationships_on_item_id", using: :btree
+    t.index ["user_id", "item_id"], name: "index_relationships_on_user_id_and_item_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_relationships_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -20,4 +42,6 @@ ActiveRecord::Schema.define(version: 20190313070212) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "relationships", "items"
+  add_foreign_key "relationships", "users"
 end

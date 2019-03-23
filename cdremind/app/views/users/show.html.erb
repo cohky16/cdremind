@@ -1,8 +1,10 @@
 <div class="user-profile">
+  <h1 class="text-center">Mypage</h1>
   <div class="icon text-center">
     <img src="<%- gravatar_url(@user, size: 100 )%>" alt="" class="img-circle">
   </div>
   <div class="name text-center">
     <h1><%= @user.name %></h1>
+    <h1><%= @user.email%></h1>
   </div>
 </div>

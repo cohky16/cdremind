@@ -12,7 +12,9 @@
               <p class="item-sales"><%= item.sales_date%></p>
               <p class="item-title"><%= link_to item.title, item.item_url,target: "blank" %></p>
               <p class="item-artist"><%= item.artist_name %></p>
-              <%= link_to 'Remind', test_path, id: 'remindbtn', class: 'btn btn-primary btn-s'%>
+              <% if logged_in?%>
+                <%= render 'relationships/remind_button', item: item %>
+              <% end %>
             </div>
           </div>
         </div>

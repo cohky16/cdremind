@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   validates :item_url, presence: true, length: { maximum: 255 }
   validates :availability, presence: true, length: { maximum: 255 }
   
-  has_many :users, through: :relationships
+  has_many :remind_users, through: :relationships, source: :user
   has_many :relationships
   
 end

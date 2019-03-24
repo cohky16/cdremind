@@ -1,0 +1,11 @@
+<% if current_user.remind?(item) %>
+  <%= form_tag(relationship_path(item.id), method: :delete) do %>
+    <%= hidden_field_tag :item_id, item.id %>
+    <%= submit_tag 'Unremind', class: 'btn btn-success' %>
+  <% end %>
+<% else %>
+  <%= form_tag(relationships_path) do %>
+    <%= hidden_field_tag :jan, item.jan %>
+    <%= submit_tag 'Remind', class: 'btn btn-primary' %>
+  <% end %>
+<% end %>

@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :require_user_logged_in, only:[:show]
   def show
     @user = User.find(params[:id])
+    @items = @user.remind_items
+    @count_remind = @user.remind_items.count
   end
 
   def new

@@ -13,9 +13,9 @@ class ApplicationController < ActionController::Base
   
   def read(result)
     jan = result['jan']
+    sales_date = result['salesDate']
     title = result['title']
     artist_name = result['artistName']
-    sales_date = result['salesDate']
     image_url = result['largeImageUrl']
     item_url = result['itemUrl']
     availability = result['availability']
@@ -29,4 +29,5 @@ class ApplicationController < ActionController::Base
       availability: availability
     }
   end 
+  
 end

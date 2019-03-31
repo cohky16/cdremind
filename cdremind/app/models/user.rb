@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :remind_items, through: :relationships, source: :item
   
   def remind(other_item)
-    self.relationships.find_or_create_by(item_id: other_item.id)
+    self.relationships.find_or_create_by(item_id: other_item.id, sales_date: other_item.sales_date)
   end 
     
   def unremind(other_item)

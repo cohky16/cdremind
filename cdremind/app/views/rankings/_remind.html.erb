@@ -1,6 +1,6 @@
-<% if items %>
+<% if @items.present? %>
   <div class="row">
-    <% items.each do |item| %>
+    <% @items.each_with_index do |item, index| %>
       <div class="item">
         <div class="col-md-3 col-sm-4 col-xs-12">
           <div class="panel panel-default">
@@ -8,12 +8,17 @@
               <img src="<%= item.image_url %>" alt="" >
             </div>
             <div class="panel-body">
-              <p class="item-sales"><%= item.sales_date%></p>
+              <p class="item-sales"><%= item.sales_date %></p>
               <p class="item-title"><%= link_to item.title, item.item_url,target: "blank" %></p>
               <p class="item-artist"><%= item.artist_name %></p>
-              <% if logged_in?%>
-                <%= render 'relationships/remind_button', item: item %>
-              <% end %>
+              <div class="buttons text-center">
+                <% if logged_in? %>
+                  <%= render 'relationships/remind_button', item: item %>
+                <% end %>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <p class="text-center"><%= index+1 %>位: <%= @ranking_counts[item.id] %> Reminds</p>
             </div>
           </div>
         </div>
@@ -21,3 +26,4 @@
     <% end %>
   </div>
 <% end %>
+

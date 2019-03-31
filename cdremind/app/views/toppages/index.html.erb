@@ -23,7 +23,8 @@
     </div>
   </div>
   <% if logged_in? %>
-    <h1 class="text-center"><span class="glyphicon glyphicon-tower"></span>　ランキング　<span class="glyphicon glyphicon-tower"></span></h1>
+    <h1 class="text-center">ランキング</h1>
+    <%= render 'rankings/remind' %>
   <% end %>
 <% end %>
 

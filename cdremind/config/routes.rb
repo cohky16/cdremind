@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   
   resources :items, only: [:new]
   get 'test', to: 'google_auth#redirect'
-  get '/localhost', to: 'google_auth#callback'
   
   resources :relationships, only: [:create,:destroy]
+  
+  get 'ranking/remind', to: 'rankings#remind'
+  
 end

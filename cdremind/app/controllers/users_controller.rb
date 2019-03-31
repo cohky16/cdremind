@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :require_user_logged_in, only:[:show]
   def show
     @user = User.find(params[:id])
-    @items = @user.remind_items
+    @items = @user.remind_items.order("sales_date")
     @count_remind = @user.remind_items.count
   end
 
@@ -25,6 +25,8 @@ class UsersController < ApplicationController
   private
   
   def user_params 
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:item).require(:user).permit(:name, :email, :password, :password_confirmation)
   end 
+  
+ 
 end

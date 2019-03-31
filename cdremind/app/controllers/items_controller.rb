@@ -11,7 +11,8 @@ class ItemsController < ApplicationController
         imageFlag: 1,
         hits: 28,
         page: 1,
-        sort: '-releaseDate'
+        sort: '-releaseDate',
+        availability: '5'
       })
       
       results.each do |result|

@@ -9,5 +9,5 @@ class Item < ApplicationRecord
   
   has_many :remind_users, through: :relationships, source: :user
   has_many :relationships
-  
+ 
 end

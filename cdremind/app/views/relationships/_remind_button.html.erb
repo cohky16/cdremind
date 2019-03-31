@@ -5,7 +5,8 @@
   <% end %>
 <% else %>
   <%= form_tag(relationships_path) do %>
-    <%= hidden_field_tag :jan, item.jan %>
+    <%= hidden_field_tag :jan,item.jan %>
+    <%= hidden_field_tag :sales_date,item.sales_date %>
     <%= submit_tag 'Remind', class: 'btn btn-primary' %>
   <% end %>
 <% end %>

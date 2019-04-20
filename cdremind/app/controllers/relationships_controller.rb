@@ -11,8 +11,6 @@ class RelationshipsController < ApplicationController
       @item.save
     end 
     
-    
-    
     current_user.remind(@item)
     flash[:success] = 'リマインドしました'
     redirect_back(fallback_location: root_path)

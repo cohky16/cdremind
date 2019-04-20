@@ -1,6 +1,7 @@
 <% if items %>
   <div class="row">
     <% items.each do |item| %>
+    <%  if item.sales_date > Date.today.strftime("%Y年%m月%d日") %>
       <div class="item">
         <div class="col-md-3 col-sm-4 col-xs-12">
           <div class="panel panel-default">
@@ -18,6 +19,7 @@
           </div>
         </div>
       </div>
+    <% end %>
     <% end %>
   </div>
 <% end %>

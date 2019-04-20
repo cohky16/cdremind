@@ -48,7 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
   database: cdremind_production
   username: cdremind
   password: <%= ENV['CDREMIND_DATABASE_PASSWORD'] %>

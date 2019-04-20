@@ -49,8 +49,6 @@ test:
 #
 production:
   adapter: postgresql
-  encoding: unicode
-  pool: 5
   database: cdremind_production
   username: cdremind
   password: <%= ENV['CDREMIND_DATABASE_PASSWORD'] %>
